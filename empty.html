@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empty Box</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image:
+                url("static/photo/bridge.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+        header {
+            width: 100%;
+            min-height: 80px;
+            padding: 20px 8%;
+            background-image:
+                url("static/photo/pagoda.jpg");
+            background-size: cover;
+            background-position: top;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid white;
+        }
+
+        header h1 {
+            color: silver;
+            font-size: clamp(25px, 4vw, 40px);
+        }
+
+        .home {
+            color: silver;
+            font-size: clamp(16px, 2vw, 25px);
+            text-decoration: underline;
+            transition: 0.3s;
+        }
+
+        .home:hover {
+            color: white;
+            transform: scale(1.08);
+        }
+
+        /* =========================
+           EMPTY CONTENT
+        ========================= */
+        .no {
+            width: 100%;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .no a {
+            color: silver;
+            font-size: clamp(30px, 6vw, 70px);
+            text-decoration: underline;
+            transition: 0.3s;
+        }
+
+        .no a:hover {
+            color: white;
+            transform: scale(1.08);
+        }
+
+        /* =================================================
+           📱 PHONE
+           ================================================= */
+        @media (max-width: 600px) {
+            header {
+                min-height: 60px;
+                padding: 12px 6%;
+            }
+
+            header h1 {
+                font-size: 20px;
+            }
+
+            .home {
+                font-size: 15px;
+            }
+
+            .no {
+                min-height: calc(100vh - 60px);
+                padding: 15px;
+            }
+
+            .no a {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Empty Box
+        </h1>
+        <a class="home" href="main.html">
+            Home
+        </a>
+    </header>
+    <section class="no">
+        <a href="main.html">
+            Try Again
+        </a>
+    </section>
+</body>
+
+</html>

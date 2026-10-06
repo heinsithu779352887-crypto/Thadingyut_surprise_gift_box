@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Box</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            min-height: 100vh;
+            background-image:
+                url("pagoda.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* =========================
+           TITLE
+        ========================= */
+        .title {
+            width: min(600px, 70%);
+            min-height: 65px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 20px;
+            background: silver;
+            color: rgb(70, 60, 60);
+            font-size: clamp(22px, 3vw, 38px);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 120px;
+        }
+
+        /* =========================
+           BUTTON AREA
+        ========================= */
+        .buttons {
+            width: min(700px, 80%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+        .tap {
+            width: 150px;
+            min-height: 55px;
+            padding: 10px;
+            border-radius: 18px;
+            background: silver;
+            color: rgb(70, 60, 60);
+            text-decoration: none;
+            font-size: 25px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .tap:hover {
+            transform: scale(1.15);
+            background: white;
+            color: rgb(126, 118, 118);
+        }
+
+        /* =================================================
+           📱 PHONE
+           ================================================= */
+        @media (max-width: 600px) {
+            body {
+                min-height: 100vh;
+                padding: 30px 20px;
+                background-image:
+                    url("pagoda.jpg");
+                background-size: cover;
+                background-position: center;
+                background-attachment: scroll;
+            }
+
+            .title {
+                width: 50%;
+                min-height: 55px;
+                padding: 5px 12px;
+                font-size: clamp(18px, 4vw, 25px);
+                border-radius: 15px;
+                margin-bottom: 80px;
+            }
+
+            /*
+              ဖုန်းမှာ button ၂ခု
+              ဘေးချင်းမကပ်လွန်းအောင်
+            */
+            .buttons {
+                width: 60%;
+                gap: 30px;
+                justify-content: space-between;
+            }
+
+            .tap {
+                width: 70px;
+                min-height: 45px;
+                font-size: 13px;
+                border-radius: 12px;
+            }
+
+            .tap:hover {
+                color: black;
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="title">
+        သီတင်းကျွတ်လက်ဆောင်
+    </button>
+    <div class="buttons">
+        <a class="tap" href="choice.html">
+            ယူမယ်
+        </a>
+        <a class="tap" href="empty.html">
+            မယူဘူး
+        </a>
+    </div>
+</body>
+
+</html>

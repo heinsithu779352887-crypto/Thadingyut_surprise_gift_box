@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Phone responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Box</title>
+    <style>
+        /* =========================
+           BASIC RESET
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: skyblue;
+            width: 100%;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: rgb(54, 54, 104);
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+        header {
+            padding: 30px 8%;
+        }
+
+        header h2 {
+            font-size: clamp(25px, 4vw, 42px);
+        }
+
+        /* =========================
+           VIDEO SECTION
+        ========================= */
+        .video {
+            width: 100%;
+            padding: 20px 8%;
+        }
+
+        .vd {
+            width: 100%;
+            max-width: 600px;
+            display: grid;
+            /*
+              Desktop မှာ video နဲ့စာ
+              ဘေးချင်းယှဉ်နိုင်အောင်
+            */
+            grid-template-columns: 150px 1fr;
+            gap: 20px;
+            align-items: start;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .vd video {
+            width: 115.2px;
+            height: 204.8px;
+            object-fit: cover;
+        }
+
+        .vd p {
+            padding-top: 5px;
+        }
+
+        /* =========================
+           GUIDE
+        ========================= */
+        .guide {
+            width: 100%;
+            padding: 20px 8%;
+            color: rgb(54, 54, 104);
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .audio {
+            width: min(400px, 100%);
+            height: 40px;
+        }
+
+        /* =========================
+           PARAGRAPH
+        ========================= */
+        .paragraph {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px 8%;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .paragraph:hover {
+            color: black;
+        }
+
+        /* =========================
+           LINK
+        ========================= */
+        .link {
+            display: inline-block;
+            margin: 20px 8%;
+            font-size: 22px;
+            font-weight: bold;
+            color: rgb(54, 54, 104);
+            transition: 0.3s;
+        }
+
+        .link:hover {
+            color: black;
+            transform: scale(1.05);
+        }
+
+        /* =================================================
+           📱 PHONE
+           ================================================= */
+        @media (max-width: 600px) {
+            body {
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            header {
+                padding: 20px 6%;
+            }
+
+            header h2 {
+                font-size: 25px;
+            }
+
+            .video {
+                padding: 10px 6%;
+            }
+
+            /*
+              ဖုန်းမှာ video + text ကို
+              အပေါ်အောက်စီမယ်
+            */
+            .vd {
+                display: block;
+                width: 38%;
+                max-width: 300px;
+                font-size: 13px;
+                line-height: 1.6;
+                margin-bottom: 50px;
+            }
+
+            .vd video {
+                width: 150px;
+                height: 204.8px;
+                display: block;
+                margin-bottom: 0px;
+            }
+
+            .guide {
+                padding: 10px 6%;
+                font-size: 13px;
+            }
+
+            .audio {
+                width: 60%;
+                max-width: 300px;
+                height: 35px;
+            }
+
+            .paragraph {
+                padding: 5px 6%;
+                width: 60%;
+                max-width: 320px;
+                font-size: 13px;
+                line-height: 1.7;
+            }
+
+            .link {
+                margin: 15px 6%;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <h2>Only for you</h2>
+    </header>
+    <!-- VIDEO -->
+    <div class="video">
+        <div class="vd">
+            <video src="began_know.mp4" controls>
+            </video>
+            <p>
+                သိလားဂျူး အာ့ vd မှာ
+                ကိုယ်မင်းကို စပီးသဘောကျမိတာ 🤭🤭🤭
+            </p>
+        </div>
+        <div class="vd">
+            <video src="crush.mp4" controls>
+            </video>
+            <p>
+                ဒီ vd လေးကောဘဲ 🤭🤭🤭
+            </p>
+        </div>
+        <div class="vd">
+            <video src="talk_about_love.mp4" controls>
+            </video>
+            <p>
+                ရင်ထဲကစကားလေးတွေ ဘာညာပေါ့ 🤭🤭🤭
+            </p>
+        </div>
+    </div>
+    <!-- AUDIO -->
+    <div class="guide">
+        <audio class="audio" src="good_luck.mp3" controls>
+        </audio>
+        <br><br>
+        <p>
+            ပြီးရင် ဒီ audio ဖွင့်ကြည့်နော်
+        </p>
+    </div>
+    <!-- TEXT -->
+    <div class="paragraph">
+        <p>အမ်း...
+            ကိုယ်ပေးထားတဲ့လက်ဆောင်တော့ မများပါဘူးနော်၊
+            ဒါမယ့် ဒီဟာလေးတွေ အတွက် ကိုယ်အချိန်လေးပေးပြီး
+            အသေးစိတ်လုပ်ပေးထားပါတယ်ဗျ။
+            ဂျူးကြိုက်မယ်လို့တော့ မျှော်လင့်မိပါတယ်။
+            ဆိုတော့ လက်ဆောင်လေး မရွေးခင်
+            အရင်ဆုံး screen recording လေးဖွင့်ထားနော်။
+            OK ဒါပြီးရင် လက်ဆောင်ရွေးရအောင်နော်။
+        </p>
+    </div>
+    <!-- NEXT -->
+    <a class="link" href="main.html">
+        🎁 ဒီမှာနှိပ်ပါ
+    </a>
+</body>
+
+</html>

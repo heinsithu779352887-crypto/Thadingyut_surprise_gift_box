@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 20px 5%;
+            background: skyblue;
+            color: rgb(54, 54, 104);
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+        nav {
+            width: 100%;
+            display: flex;
+            gap: 35px;
+            margin-bottom: 40px;
+        }
+
+        nav a {
+            color: rgb(54, 54, 104);
+            font-size: 18px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: black;
+            transform: scale(1.05);
+        }
+
+        /* =========================
+           GIFT
+        ========================= */
+        #gift {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        #gift h2 {
+            font-size: clamp(25px, 4vw, 35px);
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           ENVELOPE
+        ========================= */
+        .envelope {
+            width: 300px;
+            height: 170px;
+            background: #ff8097;
+            position: relative;
+            border-radius: 12px;
+            box-shadow:
+                0 10px 15px rgba(100, 100, 100, 0.5);
+            overflow: visible;
+        }
+
+        .flap {
+            width: 100%;
+            height: 100%;
+            background: #ff6680;
+            clip-path:
+                polygon(0 0,
+                    100% 0,
+                    50% 60%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 15px;
+        }
+
+        /* =========================
+           LETTER
+        ========================= */
+        .letter {
+            width: 260px;
+            min-height: 140px;
+            background: white;
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow:
+                0 4px 10px rgba(0, 0, 0, 0.25);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 1s;
+            text-align: left;
+            line-height: 1.6;
+            font-size: 12px;
+            z-index: 2;
+        }
+
+        .letter.show {
+            opacity: 1;
+            transform: translateY(-50px);
+        }
+
+        /* =========================
+           BUTTONS
+        ========================= */
+        .buttons {
+            margin-top: 45px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            font-size: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.08);
+        }
+
+        .open-btn {
+            background: #ff4d6d;
+        }
+
+        .close-btn {
+            background: #444;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+        #about {
+            margin-top: 60px;
+        }
+
+        #about h2,
+        #contact h2 {
+            font-size: clamp(25px, 4vw, 35px);
+            margin-bottom: 20px;
+        }
+
+        .about {
+            width: min(500px, 100%);
+            min-height: 100px;
+            background: #ff8097;
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow:
+                0 10px 15px rgba(100, 100, 100, 0.4);
+            font-size: 13px;
+            line-height: 1.6;
+            transition: 0.3s;
+        }
+
+        .about:hover {
+            color: black;
+            transform: scale(1.02);
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+        #contact {
+            margin-top: 50px;
+        }
+
+        .contact img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
+        }
+
+        .link {
+            display: inline-block;
+            margin-top: 8px;
+            color: rgb(54, 54, 104);
+            font-size: 16px;
+            transition: 0.2s;
+        }
+
+
+        .link:hover {
+            color: black;
+            transform: scale(1.05);
+        }
+
+        /* =================================================
+           📱 PHONE
+           ================================================= */
+        @media (max-width: 600px) {
+            body {
+                padding: 15px 6%;
+                width: 100%;
+            }
+
+            nav {
+                gap: 18px;
+                margin-bottom: 30px;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            #gift h2 {
+                font-size: 25px;
+                margin-bottom: 20px;
+            }
+
+            /*
+              Phone မှာ envelope
+              screen ထဲမှာ အပြည့်ဝင်မယ်
+            */
+            .envelope {
+                width: 220px;
+                height: 120px;
+            }
+
+            .letter {
+                width: 190px;
+                min-height: 100px;
+                left: 15px;
+                bottom: 35px;
+                padding: 10px;
+                font-size: 9px;
+                line-height: 1.5;
+            }
+
+            .letter.show {
+                transform: translateY(-10px);
+            }
+
+            .buttons {
+                margin-top: 35px;
+                gap: 10px;
+            }
+
+            .btn {
+                padding: 6px 12px;
+                font-size: 9px;
+                border-radius: 8px;
+            }
+
+            #about {
+                margin-top: 45px;
+            }
+
+            #about h2,
+            #contact h2 {
+                font-size: 23px;
+                margin-bottom: 15px;
+            }
+
+            .about {
+                width: 80%;
+                min-height: 80px;
+                padding: 10px 15px;
+                font-size: 9px;
+                line-height: 1.6;
+            }
+
+            #contact {
+                margin-top: 35px;
+            }
+
+            .contact img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .link {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- =========================
+         NAV
+    ========================== -->
+    <nav>
+        <a href="choice.html">
+            Home
+        </a>
+        <a href="#gift">
+            Gift
+        </a>
+        <a href="#about">
+            About
+        </a>
+        <a href="#contact">
+            Contact
+        </a>
+    </nav>
+    <!-- =========================
+         GIFT
+    ========================== -->
+    <div id="gift">
+        <h2>
+            Gift 3
+        </h2>
+        <div class="envelope">
+            <div class="flap" id="flap">
+            </div>
+            <div class="letter" id="letter">
+                အမ်း...🤔🤔<br>
+                ဟဲလို...🤗🤗<br>
+                တတိယ လက်ဆောင်ဘူးလေးထဲကတော့
+                🤔🤔<br>
+                အာဘွား ဘဲဖြစ်ပါတယ်...🤭🤭<br>
+                ဒါမယ့်လည်း အာဘွားပြန်ပေးကွာ 🤪😁
+            </div>
+        </div>
+        <!-- BUTTONS -->
+        <div class="buttons">
+            <button class="btn open-btn" onclick="openLetter()">
+                Open 💌
+            </button>
+            <button class="btn close-btn" onclick="closeLetter()">
+                Close ✖
+            </button>
+        </div>
+    </div>
+    <!-- =========================
+         ABOUT
+    ========================== -->
+    <div id="about">
+        <h2>
+            About
+        </h2>
+        <div class="about">
+            <p>
+                ကောင်မလေးက သီတင်းကျွတ်
+                trend လေး join မယ် ဘာညာပေါ့ 😁😝
+            </p>
+            <p>
+                ဒါကတော့ တတိယလက်ဆောင်ဘူးလေးပါ 🎁🎁
+            </p>
+            <p>
+                ဒါပြီးရင်တော့ ဂျူဂျူး
+                ဘာလက်ဆောင်ဘူးလေးရတယ်ဆိုတာ
+                ပြန်ပြောပေး 😍😍
+            </p>
+            <p>
+                အောက်က တယ်လီဂရမ်လင့်လေး
+                နှိပ်ပေးပါဗျ 👇👇
+            </p>
+        </div>
+    </div>
+    <!-- =========================
+         CONTACT
+    ========================== -->
+    <div id="contact">
+        <h2>
+            Contact
+        </h2>
+        <div class="contact">
+            <img src="static/photo/telegram.png" alt="Telegram">
+            <br>
+            <!-- Telegram link ကို ဒီလိုရေးပါ -->
+            <a class="link" href="https://t.me/THUSOENAING" target="_blank">
+                Hein Sithu
+            </a>
+        </div>
+    </div>
+    <!-- =========================
+         MUSIC
+    ========================== -->
+    <audio id="music">
+        <source src="wow_song.mp3" type="audio/mpeg">
+    </audio>
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    <script>
+        function openLetter() {
+            const letter =
+                document.getElementById("letter");
+            const music =
+                document.getElementById("music");
+            letter.classList.add("show");
+            music.currentTime = 0;
+            music.play();
+        }
+        function closeLetter() {
+            const letter =
+                document.getElementById("letter");
+            const music =
+                document.getElementById("music");
+            letter.classList.remove("show");
+            music.pause();
+        }
+    </script>
+</body>
+
+</html>
